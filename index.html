@@ -1,0 +1,64 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>System Terminal</title>
+<style>
+    body {
+        margin: 0;
+        background: black;
+        color: #00ff00;
+        font-family: monospace;
+        overflow: hidden;
+    }
+    #terminal {
+        padding: 20px;
+        white-space: pre-line;
+        font-size: 14px;
+    }
+    .blink {
+        animation: blink 1s infinite;
+    }
+    @keyframes blink {
+        50% { opacity: 0; }
+    }
+</style>
+</head>
+<body>
+
+<div id="terminal"></div>
+
+<script>
+const lines = [
+    "[+] Initializing system...",
+    "[+] Connecting to target...",
+    "[+] Bypassing firewall...",
+    "[+] Injecting payload...",
+    "[+] Access granted.",
+    "[+] Downloading data...",
+    "[+] Cracking hashes...",
+    "[+] Upload complete.",
+    "[+] Cleaning logs...",
+    "[+] Operation successful."
+];
+
+let terminal = document.getElementById("terminal");
+let i = 0;
+
+function addLine() {
+    if (i < lines.length) {
+        terminal.innerHTML += lines[i] + "\n";
+        i++;
+        window.scrollTo(0, document.body.scrollHeight);
+        setTimeout(addLine, 500);
+    } else {
+        terminal.innerHTML += "\n> SYSTEM STATUS: <span class='blink'>ONLINE</span>\n";
+        terminal.innerHTML += "😎 This is just a prank. No hacking here.\n";
+    }
+}
+
+addLine();
+</script>
+
+</body>
+</html>
